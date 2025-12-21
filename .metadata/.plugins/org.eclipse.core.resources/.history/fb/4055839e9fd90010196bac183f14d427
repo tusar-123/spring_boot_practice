@@ -1,0 +1,34 @@
+package com.zepto.order.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "order_status")
+public class OrderEntity {
+	@Column(name = "order_id" )
+	private Integer order_id;
+	@Column(name = "payment_id")
+	private Integer payment_id;
+	@Column
+	private String status;
+	public Integer getOrder_id() {
+		return order_id;
+	}
+	public void setOrder_id(Integer order_id) {
+		this.order_id = order_id;
+	}
+	public Integer getPayment_id() {
+		return payment_id;
+	}
+	public void setPayment_id(Integer payment_id) {
+		this.payment_id = payment_id;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+}

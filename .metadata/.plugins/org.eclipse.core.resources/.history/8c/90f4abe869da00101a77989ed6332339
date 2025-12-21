@@ -1,0 +1,5 @@
+package com.zepto.banking.repository;
+
+public class FundTransferRepository extends J{
+
+}

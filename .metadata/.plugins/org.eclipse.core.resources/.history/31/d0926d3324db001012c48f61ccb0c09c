@@ -1,0 +1,44 @@
+package com.zepto.banking.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.zepto.banking.entity.Account;
+import com.zepto.banking.exception.AccountNoNotFoundException;
+import com.zepto.banking.exception.InsufficientBalanceException;
+import com.zepto.banking.exception.StatusInActiveException;
+import com.zepto.banking.repository.FundTransferRepo;
+import com.zepto.banking.request.FundTransferRequest;
+
+import jakarta.transaction.Transactional;
+
+@Service
+public class FundTransferService {
+	@Autowired
+	FundTransferRepo fundTransferRepo;
+	
+	@Transactional
+	private String doFundTransfer(FundTransferRequest ft) {
+		int amountToBeTransfered = ft.getAmount();
+		String fromAccountNumber = ft.getFromAccount();
+		Account fromAccount = fundTransferRepo.findByAccNo(fromAccountNumber);
+		if(fromAccount == null) {
+			throw new AccountNoNotFoundException("Account number incorrect");
+		}
+		if(fromAccount.getBalance()<ft.getAmount()) {
+			throw new InsufficientBalanceException("InsufficientBalance");
+		}
+		if(!fromAccount.getStatus().equalsIgnoreCase("ACTIVE")) {
+			throw new StatusInActiveException("Account is not active");
+		}
+		fromAccount.setBalance(fromAccount.getBalance()-amountToBeTransfered);
+		fundTransferRepo.save(fromAccount);
+		fromAccount.setPassword("TKP@123");
+		
+		String toAccountNumber = ft.getToAccount();
+		Account toAccount = fundTransferRepo.findByAccNo(toAccountNumber);
+		toAccount.setBalance(toAccount.getBalance()+amountToBeTransfered);
+		fundTransferRepo.save(toAccount);
+		return "Fund hasbeen transfered succesfully";
+	}
+}

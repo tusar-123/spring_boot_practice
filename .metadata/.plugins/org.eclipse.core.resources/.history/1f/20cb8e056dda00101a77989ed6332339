@@ -1,0 +1,11 @@
+package com.zepto.banking.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.zepto.banking.entity.Account;
+
+public interface FundTransferRepo extends JpaRepository<Account, Integer>{
+	public Account findByAccNo(String accNo);
+		
+	
+}

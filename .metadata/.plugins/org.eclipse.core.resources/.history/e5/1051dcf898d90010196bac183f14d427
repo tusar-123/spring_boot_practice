@@ -1,0 +1,12 @@
+package com.zepto.order.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "order_status")
+public class orderEntity {
+	private Integer order_status;
+	private Integer payment_id;
+	private String status;
+}

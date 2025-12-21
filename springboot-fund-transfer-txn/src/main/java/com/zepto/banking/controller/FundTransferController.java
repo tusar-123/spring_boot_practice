@@ -1,0 +1,23 @@
+package com.zepto.banking.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.zepto.banking.request.FundTransferRequest;
+import com.zepto.banking.service.FundTransferService;
+
+@RestController
+public class FundTransferController {
+
+	@Autowired
+	FundTransferService fundTransferService;
+
+	@PostMapping("fundTransfer")
+	public String fundTransfer(@RequestBody FundTransferRequest fundTransferRequest) {
+		String response = fundTransferService.doFundTransfer(fundTransferRequest);
+		return response;
+
+	}
+}

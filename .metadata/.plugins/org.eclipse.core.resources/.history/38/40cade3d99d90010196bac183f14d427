@@ -1,0 +1,6 @@
+package com.zepto.order.repository;
+
+@
+public Interface orderRepository {
+
+}

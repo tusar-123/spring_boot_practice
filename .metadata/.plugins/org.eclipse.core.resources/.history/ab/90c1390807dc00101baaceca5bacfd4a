@@ -1,0 +1,30 @@
+package com.zepto.schedular.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
+
+import com.zepto.schedular.entity.BirthdaySchedularEntity;
+import com.zepto.schedular.repository.BirthdaySchedularRepo;
+
+@Service
+public class BirdaySchedularService {
+	@Autowired
+	BirthdaySchedularRepo birthdaySchedularRepo;
+	
+	@Scheduled(cron = "0 13 17 * * ?")
+	public void printBirthdayMessage() {
+		List<BirthdaySchedularEntity> users = birthdaySchedularRepo.findTodayBirthdayEmails();
+		
+		if(users.isEmpty()) {
+			System.out.println("No birthdays today:::::::::::");
+			return;
+		}
+		
+		for(BirthdaySchedularEntity  user : users) {
+			System.out.println("Happy BirthDay "+user.getFirst_name()+" "+user.getLast_name());
+		}
+	}
+}

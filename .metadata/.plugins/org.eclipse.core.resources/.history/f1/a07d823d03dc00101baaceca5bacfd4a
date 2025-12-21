@@ -1,0 +1,12 @@
+package com.zepto.schedular.service;
+
+import java.util.List;
+
+import com.zepto.schedular.entity.BirthdaySchedularEntity;
+import com.zepto.schedular.repository.BirthdaySchedularRepo;
+
+public class BirdaySchedularService {
+	public void printBirthdayMessage() {
+		List<BirthdaySchedularEntity> users = BirthdaySchedularRepo.findTodayBirthdayEmails();
+	}
+}

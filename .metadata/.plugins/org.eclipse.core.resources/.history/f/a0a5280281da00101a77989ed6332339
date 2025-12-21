@@ -1,0 +1,5 @@
+package com.zepto.banking.exception;
+
+public class BankingGlobalException {
+
+}

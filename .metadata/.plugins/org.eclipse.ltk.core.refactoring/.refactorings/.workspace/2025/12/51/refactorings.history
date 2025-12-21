@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;springboot-order-status-update-api&apos; to &apos;springboot-order-statusUpdate-api&apos;" description="Rename resource &apos;springboot-order-status-update-api&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/springboot-order-status-update-api" name="springboot-order-statusUpdate-api" stamp="1765793720419" updateReferences="true"/>
+</session>

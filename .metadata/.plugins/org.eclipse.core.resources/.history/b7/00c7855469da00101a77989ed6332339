@@ -1,0 +1,8 @@
+package com.zepto.banking.entity;
+
+public class FundTransferEntity {
+	private int id;
+	private String accNo;
+	private int balance;
+	private int status;
+}

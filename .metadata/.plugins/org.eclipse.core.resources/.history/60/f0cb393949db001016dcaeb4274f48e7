@@ -1,0 +1,14 @@
+package com.zepto.product.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+
+public class RedisConfig {
+	
+	@Bean
+	public RedisConnectionFactory redisConnectionFactory() {
+		RedisStandaloneConfiguration redisConfig = new RedisStandaloneConfiguration("climbing-vervet-27202.upstash.io",
+				6379);
+	}
+	
+}

@@ -1,0 +1,15 @@
+package com.zepto.banking.exception;
+
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.zepto.banking.response.ExceptionResponse;
+
+@RestControllerAdvice
+public class BankingGlobalException {
+	public String accNoNotFound(AccountNoNotFoundException accountNoNotFoundException) {
+		ExceptionResponse exceptionResponse = new ExceptionResponse();
+		exceptionResponse.setStatusCode("ACC001");
+		return null;
+		
+	} 
+}

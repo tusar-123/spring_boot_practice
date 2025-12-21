@@ -1,0 +1,25 @@
+package com.zepto.order.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.zepto.order.entity.OrderEntity;
+import com.zepto.order.request.OrderRequest;
+import com.zepto.order.service.OrderService;
+
+@RestController
+public class OrderController {
+	@Autowired
+	OrderService orderService;
+	
+	@PatchMapping("updateStatus/{order_id}")
+	public ResponseEntity updateOrderStatus(@PathVariable Integer order_id,@RequestBody OrderRequest orderRequest) {
+		OrderEntity orderEntity = orderService.updateStatus(order_id, orderRequest);
+		return ResponseEntity.ok("Order shipped and will be delivered soon");
+		
+	}
+}

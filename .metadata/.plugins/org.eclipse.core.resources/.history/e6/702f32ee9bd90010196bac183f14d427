@@ -1,0 +1,18 @@
+package com.zepto.order.service;
+
+import org.springframework.stereotype.Service;
+
+import com.zepto.order.entity.OrderEntity;
+import com.zepto.order.request.OrderRequest;
+
+@Service
+public class OrderService {
+	
+	
+	
+	public OrderEntity updateStatus(Integer order_id,OrderRequest orderRequest) {
+		OrderEntity orderEntity = new OrderEntity();
+				orderEntity.setStatus(orderRequest.getStatus());
+				return orderEntity;
+	}
+}

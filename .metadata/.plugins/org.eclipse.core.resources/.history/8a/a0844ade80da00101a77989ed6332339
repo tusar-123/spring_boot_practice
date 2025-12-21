@@ -1,0 +1,5 @@
+package com.zepto.banking.response;
+
+public class ExceptionResponse {
+
+}

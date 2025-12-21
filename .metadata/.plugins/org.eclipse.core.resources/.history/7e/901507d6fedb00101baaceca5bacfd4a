@@ -1,0 +1,6 @@
+package com.zepto.schedular.entity;
+
+public interface BirthdaySchedularEntity {
+	private String firstName;
+	private String 
+}

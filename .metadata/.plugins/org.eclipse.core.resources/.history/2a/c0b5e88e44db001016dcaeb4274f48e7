@@ -1,0 +1,20 @@
+package com.zepto.product.request;
+
+public class ProductRequest {
+	private String itemName;
+	private int price;
+	public String getpName() {
+		return pName;
+	}
+	public void setpName(String pName) {
+		this.pName = pName;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	
+}

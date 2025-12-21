@@ -1,0 +1,5 @@
+package com.zepto.product.config;
+
+public class RedisConfig {
+
+}

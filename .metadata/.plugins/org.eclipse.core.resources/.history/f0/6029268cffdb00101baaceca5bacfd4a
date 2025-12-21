@@ -1,0 +1,5 @@
+package com.zepto.schedular.repository;
+
+public interface BirthdaySchedularRepo {
+
+}

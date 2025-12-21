@@ -1,0 +1,5 @@
+package com.zepto.product.request;
+
+public class ProductSearchRequest {
+	
+}

@@ -1,0 +1,22 @@
+package com.zepto.banking.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.zepto.banking.entity.Account;
+import com.zepto.banking.repository.FundTransferRepo;
+import com.zepto.banking.request.FundTransferRequest;
+
+@Service
+public class FundTransferService {
+	@Autowired
+	FundTransferRepo fundTransferRepo;
+	
+	public String doFundTransfer(FundTransferRequest ft) {
+		int amountToBeTransfered = ft.getAmount();
+		String fromAccountNumber = ft.getFromAccount();
+		Account fromAccount = fundTransferRepo.findByAccNo(fromAccountNumber);
+		fromAccount.setBalance(fromAccount.getBalance()-amountToBeTransfered);
+;		return null;
+	}
+}

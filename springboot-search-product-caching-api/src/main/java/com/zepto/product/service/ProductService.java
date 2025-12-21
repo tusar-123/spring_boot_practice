@@ -1,0 +1,32 @@
+package com.zepto.product.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
+
+import com.zepto.product.entity.Product;
+import com.zepto.product.repository.ProductRepository;
+import com.zepto.product.request.ProductRequest;
+
+@Service
+public class ProductService {
+	
+	@Autowired
+	ProductRepository productRepository;
+	public String createProduct(ProductRequest productRequest) {
+		Product product = new Product();
+		System.out.println(productRequest.getProdName());
+		product.setItemName(productRequest.getProdName());
+		product.setItemPrice(productRequest.getPrice());
+		productRepository.save(product);
+		return "product added successfully";
+	}
+	@Cacheable(value = "Product-name" , key = "#name" , unless = "#result == null")
+	public List<Product> searchproduct(String name){
+		System.out.println("Fetching from database........");
+		List<Product> response = productRepository.findByItemNameContaining(name);
+		return response;
+	}
+}
